@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            APP_PORT: 8000
+            COVID_API_URL: https://coronavirus-tracker-api.herokuapp.com/v2
+        ports:
+            - 8000:8000
+
+    client:
+        build:
+            context: ../kjs-web/
+            dockerfile: Dockerfile
+        ports:
+            - 80:80
